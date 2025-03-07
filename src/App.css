@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background: black;
+  color: white;
+}
+
+header {
+  @apply bg-slate-950;
+  @apply p-4;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  h1 {
+    @apply text-2xl font-medium font-mono;
+  }
+
+  h3 {
+    font-style: italic;
+    @apply text-base font-mono;
+  }
+}
+
+.single-folder-depiction, .multi-folder-depiction {
+  @apply fill-slate-400;
+
+  svg {
+    width: 25px;
+  }
+}
+
+.multi-folder-depiction {
+  display: flex;
+  align-items: center;
+  
+  .parent {
+    padding-right: 10px;
+  }
+
+  .end-line, .start-line, .folder-line {
+    position: absolute;
+    z-index: 1;
+    @apply border-slate-600;
+  }
+
+  .children {
+    padding-left: 10px;
+    position: relative;
+  }
+
+  .end-line {
+    left: 0px;
+    width: 10px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+  }
+
+  .end-line-1 {
+    top: 10px;
+  }
+
+  .end-line-2 {
+    top: 50%;
+  }
+
+  .end-line-3 {
+    bottom: 10px;
+  }
+
+  .start-line {
+    top: 50%;
+    left: -10px;
+    width: 10px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+  }
+
+  .folder-line {
+    border-left-width: 1px;
+    border-left-style: solid;
+    left: 0;
+    width: 1px;
+    height: calc(100% - 20px);
+    top: 10px;
+  }
+}
+
+body {
+  height: 100vh;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  display: contents;
+}
+
+.upload-btn {
+  @apply font-mono;
+  @apply p-2;
+  @apply bg-slate-950;
+  @apply border-solid border-2 border-slate-50 rounded-sm;
+  @apply cursor-pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &:hover {
+    @apply bg-slate-800;
+  }
+}
+
+main {
+  height: 100%;
+  flex-grow: 1;
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+  overflow-y: auto;
+  /* padding: 0px 30px 60px; */
+  @apply bg-slate-900;
+
+  .main--top-drawer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @apply gap-4;
+  }
+
+  .main--bottom-drawer {
+
+  }
+}
+
+.filegroup-list {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.filegroup {
+  display: flex;
+  flex-direction: column;
+  .compare-btn {
+    align-self: center;
+  }
+
+  button {
+    align-self: center;
+  }
+
+  ul {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    padding-inline: 0;
+    list-style-type: none;
+  }
+}
